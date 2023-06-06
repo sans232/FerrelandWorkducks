@@ -1,0 +1,85 @@
+C:\ProgramasVisual\Curso de Sistema Web Carrito\CursoMVC\CapaEntidad\bin\Debug\CapaEntidad.dll
+C:\ProgramasVisual\Curso de Sistema Web Carrito\CursoMVC\CapaEntidad\bin\Debug\CapaEntidad.pdb
+C:\ProgramasVisual\Curso de Sistema Web Carrito\CursoMVC\CapaEntidad\obj\Debug\CapaEntidad.csproj.CoreCompileInputs.cache
+C:\ProgramasVisual\Curso de Sistema Web Carrito\CursoMVC\CapaEntidad\obj\Debug\CapaEntidad.dll
+C:\ProgramasVisual\Curso de Sistema Web Carrito\CursoMVC\CapaEntidad\obj\Debug\CapaEntidad.pdb
+D:\IngenieriaDeSistemasInfo\Tercer año\6to semestre\Proyecto de Sistemas I\CursoMVC\CapaEntidad\bin\Debug\NUnit3.TestAdapter.dll
+D:\IngenieriaDeSistemasInfo\Tercer año\6to semestre\Proyecto de Sistemas I\CursoMVC\CapaEntidad\bin\Debug\NUnit3.TestAdapter.pdb
+D:\IngenieriaDeSistemasInfo\Tercer año\6to semestre\Proyecto de Sistemas I\CursoMVC\CapaEntidad\bin\Debug\nunit.engine.dll
+D:\IngenieriaDeSistemasInfo\Tercer año\6to semestre\Proyecto de Sistemas I\CursoMVC\CapaEntidad\bin\Debug\nunit.engine.api.dll
+D:\IngenieriaDeSistemasInfo\Tercer año\6to semestre\Proyecto de Sistemas I\CursoMVC\CapaEntidad\bin\Debug\nunit.engine.core.dll
+D:\IngenieriaDeSistemasInfo\Tercer año\6to semestre\Proyecto de Sistemas I\CursoMVC\CapaEntidad\bin\Debug\testcentric.engine.metadata.dll
+D:\IngenieriaDeSistemasInfo\Tercer año\6to semestre\Proyecto de Sistemas I\CursoMVC\CapaEntidad\bin\Debug\selenium-manager\linux\selenium-manager
+D:\IngenieriaDeSistemasInfo\Tercer año\6to semestre\Proyecto de Sistemas I\CursoMVC\CapaEntidad\bin\Debug\selenium-manager\macos\selenium-manager
+D:\IngenieriaDeSistemasInfo\Tercer año\6to semestre\Proyecto de Sistemas I\CursoMVC\CapaEntidad\bin\Debug\selenium-manager\windows\selenium-manager.exe
+D:\IngenieriaDeSistemasInfo\Tercer año\6to semestre\Proyecto de Sistemas I\CursoMVC\CapaEntidad\bin\Debug\CapaEntidad.dll
+D:\IngenieriaDeSistemasInfo\Tercer año\6to semestre\Proyecto de Sistemas I\CursoMVC\CapaEntidad\bin\Debug\CapaEntidad.pdb
+D:\IngenieriaDeSistemasInfo\Tercer año\6to semestre\Proyecto de Sistemas I\CursoMVC\CapaEntidad\bin\Debug\nunit.framework.dll
+D:\IngenieriaDeSistemasInfo\Tercer año\6to semestre\Proyecto de Sistemas I\CursoMVC\CapaEntidad\bin\Debug\WebDriver.dll
+D:\IngenieriaDeSistemasInfo\Tercer año\6to semestre\Proyecto de Sistemas I\CursoMVC\CapaEntidad\bin\Debug\WebDriver.Support.dll
+D:\IngenieriaDeSistemasInfo\Tercer año\6to semestre\Proyecto de Sistemas I\CursoMVC\CapaEntidad\bin\Debug\nunit.framework.xml
+D:\IngenieriaDeSistemasInfo\Tercer año\6to semestre\Proyecto de Sistemas I\CursoMVC\CapaEntidad\obj\Debug\CapaEntidad.csproj.AssemblyReference.cache
+D:\IngenieriaDeSistemasInfo\Tercer año\6to semestre\Proyecto de Sistemas I\CursoMVC\CapaEntidad\obj\Debug\CapaEntidad.csproj.CoreCompileInputs.cache
+D:\IngenieriaDeSistemasInfo\Tercer año\6to semestre\Proyecto de Sistemas I\CursoMVC\CapaEntidad\obj\Debug\CapaEntidad.csproj.CopyComplete
+D:\IngenieriaDeSistemasInfo\Tercer año\6to semestre\Proyecto de Sistemas I\CursoMVC\CapaEntidad\obj\Debug\CapaEntidad.dll
+D:\IngenieriaDeSistemasInfo\Tercer año\6to semestre\Proyecto de Sistemas I\CursoMVC\CapaEntidad\obj\Debug\CapaEntidad.pdb
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\ProyectodeSistemasI\SWWorkDuck\CapaEntidad\bin\Debug\NUnit3.TestAdapter.dll
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\ProyectodeSistemasI\SWWorkDuck\CapaEntidad\bin\Debug\NUnit3.TestAdapter.pdb
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\ProyectodeSistemasI\SWWorkDuck\CapaEntidad\bin\Debug\nunit.engine.dll
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\ProyectodeSistemasI\SWWorkDuck\CapaEntidad\bin\Debug\nunit.engine.api.dll
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\ProyectodeSistemasI\SWWorkDuck\CapaEntidad\bin\Debug\nunit.engine.core.dll
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\ProyectodeSistemasI\SWWorkDuck\CapaEntidad\bin\Debug\testcentric.engine.metadata.dll
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\ProyectodeSistemasI\SWWorkDuck\CapaEntidad\bin\Debug\selenium-manager\linux\selenium-manager
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\ProyectodeSistemasI\SWWorkDuck\CapaEntidad\bin\Debug\selenium-manager\macos\selenium-manager
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\ProyectodeSistemasI\SWWorkDuck\CapaEntidad\bin\Debug\selenium-manager\windows\selenium-manager.exe
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\ProyectodeSistemasI\SWWorkDuck\CapaEntidad\bin\Debug\CapaEntidad.dll
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\ProyectodeSistemasI\SWWorkDuck\CapaEntidad\bin\Debug\CapaEntidad.pdb
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\ProyectodeSistemasI\SWWorkDuck\CapaEntidad\bin\Debug\nunit.framework.dll
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\ProyectodeSistemasI\SWWorkDuck\CapaEntidad\bin\Debug\WebDriver.dll
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\ProyectodeSistemasI\SWWorkDuck\CapaEntidad\bin\Debug\WebDriver.Support.dll
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\ProyectodeSistemasI\SWWorkDuck\CapaEntidad\bin\Debug\nunit.framework.xml
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\ProyectodeSistemasI\SWWorkDuck\CapaEntidad\obj\Debug\CapaEntidad.csproj.AssemblyReference.cache
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\ProyectodeSistemasI\SWWorkDuck\CapaEntidad\obj\Debug\CapaEntidad.csproj.CoreCompileInputs.cache
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\ProyectodeSistemasI\SWWorkDuck\CapaEntidad\obj\Debug\CapaEntidad.csproj.CopyComplete
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\ProyectodeSistemasI\SWWorkDuck\CapaEntidad\obj\Debug\CapaEntidad.dll
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\ProyectodeSistemasI\SWWorkDuck\CapaEntidad\obj\Debug\CapaEntidad.pdb
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\SWWorkDuck\SWWorkDuck\CapaEntidad\bin\Debug\NUnit3.TestAdapter.dll
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\SWWorkDuck\SWWorkDuck\CapaEntidad\bin\Debug\NUnit3.TestAdapter.pdb
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\SWWorkDuck\SWWorkDuck\CapaEntidad\bin\Debug\nunit.engine.dll
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\SWWorkDuck\SWWorkDuck\CapaEntidad\bin\Debug\nunit.engine.api.dll
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\SWWorkDuck\SWWorkDuck\CapaEntidad\bin\Debug\nunit.engine.core.dll
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\SWWorkDuck\SWWorkDuck\CapaEntidad\bin\Debug\testcentric.engine.metadata.dll
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\SWWorkDuck\SWWorkDuck\CapaEntidad\bin\Debug\selenium-manager\linux\selenium-manager
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\SWWorkDuck\SWWorkDuck\CapaEntidad\bin\Debug\selenium-manager\macos\selenium-manager
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\SWWorkDuck\SWWorkDuck\CapaEntidad\bin\Debug\selenium-manager\windows\selenium-manager.exe
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\SWWorkDuck\SWWorkDuck\CapaEntidad\bin\Debug\CapaEntidad.dll
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\SWWorkDuck\SWWorkDuck\CapaEntidad\bin\Debug\CapaEntidad.pdb
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\SWWorkDuck\SWWorkDuck\CapaEntidad\bin\Debug\nunit.framework.dll
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\SWWorkDuck\SWWorkDuck\CapaEntidad\bin\Debug\WebDriver.dll
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\SWWorkDuck\SWWorkDuck\CapaEntidad\bin\Debug\WebDriver.Support.dll
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\SWWorkDuck\SWWorkDuck\CapaEntidad\bin\Debug\nunit.framework.xml
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\SWWorkDuck\SWWorkDuck\CapaEntidad\obj\Debug\CapaEntidad.csproj.AssemblyReference.cache
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\SWWorkDuck\SWWorkDuck\CapaEntidad\obj\Debug\CapaEntidad.csproj.CoreCompileInputs.cache
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\SWWorkDuck\SWWorkDuck\CapaEntidad\obj\Debug\CapaEntidad.csproj.CopyComplete
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\SWWorkDuck\SWWorkDuck\CapaEntidad\obj\Debug\CapaEntidad.dll
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\SWWorkDuck\SWWorkDuck\CapaEntidad\obj\Debug\CapaEntidad.pdb
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\SWWorkDuck\SWWorkDuck1\SWWorkDuck\CapaEntidad\bin\Debug\NUnit3.TestAdapter.dll
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\SWWorkDuck\SWWorkDuck1\SWWorkDuck\CapaEntidad\bin\Debug\NUnit3.TestAdapter.pdb
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\SWWorkDuck\SWWorkDuck1\SWWorkDuck\CapaEntidad\bin\Debug\nunit.engine.dll
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\SWWorkDuck\SWWorkDuck1\SWWorkDuck\CapaEntidad\bin\Debug\nunit.engine.api.dll
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\SWWorkDuck\SWWorkDuck1\SWWorkDuck\CapaEntidad\bin\Debug\nunit.engine.core.dll
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\SWWorkDuck\SWWorkDuck1\SWWorkDuck\CapaEntidad\bin\Debug\testcentric.engine.metadata.dll
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\SWWorkDuck\SWWorkDuck1\SWWorkDuck\CapaEntidad\bin\Debug\selenium-manager\linux\selenium-manager
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\SWWorkDuck\SWWorkDuck1\SWWorkDuck\CapaEntidad\bin\Debug\selenium-manager\macos\selenium-manager
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\SWWorkDuck\SWWorkDuck1\SWWorkDuck\CapaEntidad\bin\Debug\selenium-manager\windows\selenium-manager.exe
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\SWWorkDuck\SWWorkDuck1\SWWorkDuck\CapaEntidad\bin\Debug\CapaEntidad.dll
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\SWWorkDuck\SWWorkDuck1\SWWorkDuck\CapaEntidad\bin\Debug\CapaEntidad.pdb
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\SWWorkDuck\SWWorkDuck1\SWWorkDuck\CapaEntidad\bin\Debug\nunit.framework.dll
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\SWWorkDuck\SWWorkDuck1\SWWorkDuck\CapaEntidad\bin\Debug\WebDriver.dll
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\SWWorkDuck\SWWorkDuck1\SWWorkDuck\CapaEntidad\bin\Debug\WebDriver.Support.dll
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\SWWorkDuck\SWWorkDuck1\SWWorkDuck\CapaEntidad\bin\Debug\nunit.framework.xml
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\SWWorkDuck\SWWorkDuck1\SWWorkDuck\CapaEntidad\obj\Debug\CapaEntidad.csproj.AssemblyReference.cache
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\SWWorkDuck\SWWorkDuck1\SWWorkDuck\CapaEntidad\obj\Debug\CapaEntidad.csproj.CoreCompileInputs.cache
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\SWWorkDuck\SWWorkDuck1\SWWorkDuck\CapaEntidad\obj\Debug\CapaEntidad.csproj.CopyComplete
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\SWWorkDuck\SWWorkDuck1\SWWorkDuck\CapaEntidad\obj\Debug\CapaEntidad.dll
+D:\IngenieriaDeSistemasInfo\Tercer Año\6tosemestre\SWWorkDuck\SWWorkDuck1\SWWorkDuck\CapaEntidad\obj\Debug\CapaEntidad.pdb

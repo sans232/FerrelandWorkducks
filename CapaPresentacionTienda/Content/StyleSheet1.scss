@@ -1,0 +1,17 @@
+﻿/*$primary: #ea8645;*/
+$primary: #f6e1c5;
+$light: #ea8645;
+$dark: #ca3300;
+$danger: #FF4200;
+
+@import "bootstrap/bootstrap.scss";
+
+@media (min-width: 992px) {
+    .masthead {
+        height: 100vh;
+    }
+
+    .masthead h1, .masthead .h1 {
+        font-size: 5.5rem;
+    }
+}
