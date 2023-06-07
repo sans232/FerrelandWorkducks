@@ -17,11 +17,11 @@
     </div>
 
     <div class="card-body">
-        <div class="row">
+        @*<div class="row">
             <div class="col-12">
                 <button type="button" class="btn btn-success" onclick="abrirModal(null)">Crear Nuevo</button>
             </div>
-        </div>
+        </div>*@
 
         <hr />
 
@@ -121,7 +121,7 @@
             responsive: true,
             ordering: false,
             "ajax": {
-                url: '@Url.Action("ListarUsuarios", "Home")',
+                url: '@Url.Action("ListarUsuariosE", "Home")',
                 type: "GET",
                 dataType: "json"
             },
@@ -140,8 +140,8 @@
 
                 },
                 {
-                    "defaultContent": '<button type="button" class="btn btn-primary btn-sm btn-editar"><i class="fas fa-pen"></i></button>' +
-                        '<button type="button" class="btn btn-danger btn-sm ms-2 btn-eliminar"><i class="fas fa-trash"></i></button>',
+                    "defaultContent": '<button type="button" class="btn btn-primary btn-sm btn-editar"><i class="fas fa-pen"></i></button>',
+                        /*'<button type="button" class="btn btn-danger btn-sm ms-2 btn-eliminar"><i class="fas fa-trash"></i></button>'*/
                     "orderable": false,
                     "searchable": false,
                     "width": "90px"

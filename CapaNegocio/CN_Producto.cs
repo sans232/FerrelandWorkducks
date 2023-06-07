@@ -59,7 +59,11 @@ namespace CapaNegocio
 
                 Mensaje = "Debe ingrear el stock del producto";
             }
+            else if (string.IsNullOrEmpty(obj.Codigo) || string.IsNullOrWhiteSpace(obj.Codigo))
+            {
 
+                Mensaje = "Debe ingrear el código de barras del producto";
+            }
 
 
             if (string.IsNullOrEmpty(Mensaje))
@@ -115,7 +119,10 @@ namespace CapaNegocio
 
                 Mensaje = "Debe ingrear el stock del producto";
             }
-
+            else if (string.IsNullOrEmpty(obj.Codigo) || string.IsNullOrWhiteSpace(obj.Codigo))
+            {
+                Mensaje = "El código del producto no puede ser vacio";
+            }
             if (string.IsNullOrEmpty(Mensaje))
             {
 

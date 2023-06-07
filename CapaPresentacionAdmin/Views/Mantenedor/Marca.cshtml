@@ -18,13 +18,13 @@
     </div>
 
     <div class="card-body">
-        <div class="row">
+        @*<div class="row">
             <div class="col-12">
-                <button type="button" class="btn btn-success" onclick="abrirModal(null)">Crear Nuevo</button>
+                <button type="button" class="btn btn-success" onclick="abrirModalM(null)">Crear Nuevo</button>
             </div>
         </div>
 
-        <hr />
+        <hr />*@
 
         <table id="tabla" class="display cell-border" style="width: 100%">
             <thead>
@@ -43,7 +43,7 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="FormModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static">
+<div class="modal fade" id="FormModalM" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-dark text-white">
@@ -52,20 +52,20 @@
             </div>
             <div class="modal-body">
 
-                <input id="txtid" type="hidden" value="0" />
+                <input id="txtidM" type="hidden" value="0" />
 
                 <div class="row g-1">
 
 
                     <div class="col-sm-6">
-                        <label for="txtdescripcion" class="form-label">Descripcion</label>
-                        <input type="text" class="form-control" id="txtdescripcion" autocomplete="off">
+                        <label for="txtdescripcionM" class="form-label">Descripcion</label>
+                        <input type="text" class="form-control" id="txtdescripcionM" autocomplete="off">
                     </div>
 
 
                     <div class="col-sm-6">
-                        <label for="cboactivo" class="form-label">Activo</label>
-                        <select id="cboactivo" class="form-select">
+                        <label for="cboactivoM" class="form-label">Activo</label>
+                        <select id="cboactivoM" class="form-select">
                             <option value="1">Si</option>
                             <option value="0">No</option>
                         </select>
@@ -91,7 +91,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary" onclick="Guardar()">Guardar</button>
+                <button type="button" class="btn btn-primary" onclick="GuardarM()">Guardar</button>
             </div>
         </div>
     </div>
@@ -125,9 +125,8 @@
                         }
                     }
                 },
-                {
-                    "defaultContent": '<button type="button" class="btn btn-primary btn-sm btn-editar"><i class="fas fa-pen"></i></button>' +
-                        '<button type="button" class="btn btn-danger btn-sm ms-2 btn-eliminar"><i class="fas fa-trash"></i></button>',
+                {/*+'<button type="button" class="btn btn-danger btn-sm ms-2 btn-eliminar"><i class="fas fa-trash"></i></button>'*/
+                    "defaultContent": '<button type="button" class="btn btn-primary btn-sm btn-editar"><i class="fas fa-pen"></i></button>',
                     "orderable": false,
                     "searchable": false,
                     "width": "90px"
@@ -140,23 +139,23 @@
 
         });
 
-        function abrirModal(json) {
+        function abrirModalM(json) {
 
-            $("#txtid").val(0);
-            $("#txtdescripcion").val("");
-            $("#cboactivo").val(1);
+            $("#txtidM").val(0);
+            $("#txtdescripcionM").val("");
+            $("#cboactivoM").val(1);
 
             $("#mensajeError").hide();
 
             if (json != null) {
 
-                $("#txtid").val(json.IdMarca);
-                $("#txtdescripcion").val(json.Descripcion);
-                $("#cboactivo").val(json.Activo == true ? 1 : 0);
+                $("#txtidM").val(json.IdMarca);
+                $("#txtdescripcionM").val(json.Descripcion);
+                $("#cboactivoM").val(json.Activo == true ? 1 : 0);
 
             }
 
-            $("#FormModal").modal("show");
+            $("#FormModalM").modal("show");
         }
 
 
@@ -166,7 +165,7 @@
 
             var data =  tabladata.row(filaSeleccionada).data();
 
-            abrirModal(data)
+            abrirModalM(data)
 
         })
 
@@ -223,12 +222,12 @@
 
         })
 
-        function Guardar() {
+        function GuardarM() {
 
             var Marca = {
-                IdMarca: $("#txtid").val(),
-                Descripcion: $("#txtdescripcion").val(),
-                Activo: $("#cboactivo").val() == 1 ? true : false,
+                IdMarca: $("#txtidM").val(),
+                Descripcion: $("#txtdescripcionM").val(),
+                Activo: $("#cboactivoM").val() == 1 ? true : false,
             }
 
 
@@ -249,7 +248,7 @@
 
                             Marca.IdMarca = data.resultado;
                             tabladata.row.add(Marca).draw(false);
-                            $("#FormModal").modal("hide");
+                            $("#FormModalM").modal("hide");
 
                         } else {
                             $("#mensajeError").text(data.mensaje);
@@ -263,7 +262,7 @@
 
                             tabladata.row(filaSeleccionada).data(Marca).draw(false);
                             filaSeleccionada = null;
-                            $("#FormModal").modal("hide");
+                            $("#FormModalM").modal("hide");
                         } else {
                             $("#mensajeError").text(data.mensaje);
                             $("#mensajeError").show();

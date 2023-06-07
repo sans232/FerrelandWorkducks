@@ -39,6 +39,9 @@ namespace CapaPresentacionAdmin
                 "~/Content/sweetalert.css",
                 "~/Content/jquery-ui.css"
                 ));
+            bundles.Add(new StyleBundle("~/Content/stylewp").Include(
+                "~/Content/stylewp.css"
+                ));
         }
     }
 }

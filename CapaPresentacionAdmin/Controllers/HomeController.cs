@@ -23,9 +23,17 @@ namespace CapaPresentacionAdmin.Controllers
         {
             return View();
         }
+        public ActionResult Dashboard()
+        {
+            return View();
+        }
 
         [PermisosRol(CapaEntidad.Rol.Administrador)]
         public ActionResult Usuarios()
+        {
+            return View();
+        }
+        public ActionResult CrearUsuario()
         {
             return View();
         }
@@ -43,6 +51,19 @@ namespace CapaPresentacionAdmin.Controllers
             List<Usuario> oLista = new List<Usuario>();
 
             oLista = new CN_Usuarios().Listar();
+
+
+            return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
+
+        }
+        [HttpGet]
+        public JsonResult ListarUsuariosE()
+        {
+
+
+            List<Usuario> oLista = new List<Usuario>();
+
+            oLista = new CN_Usuarios().ListarE();
 
 
             return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
