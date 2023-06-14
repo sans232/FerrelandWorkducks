@@ -14,9 +14,6 @@ namespace CapaDatos
 {
     public class CD_Categoria
     {
-
-
-
         public List<Categoria> Listar()
         {
 

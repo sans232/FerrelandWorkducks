@@ -150,8 +150,8 @@ namespace CapaPresentacionAdmin.Controllers
 
 
         [HttpPost]
-        //public async Task<JsonResult> GuardarProducto(string objeto, HttpPostedFileBase archivoImagen)
-        public JsonResult GuardarProducto(string objeto, HttpPostedFileBase archivoImagen)
+        public async Task<JsonResult> GuardarProducto(string objeto, HttpPostedFileBase archivoImagen)
+        //public JsonResult GuardarProducto(string objeto, HttpPostedFileBase archivoImagen)
         {
 
             string mensaje = string.Empty;
@@ -196,25 +196,25 @@ namespace CapaPresentacionAdmin.Controllers
 
                 if (archivoImagen != null) {
 
-                    string ruta_guardar = ConfigurationManager.AppSettings["ServidorFotos"];
+                    //string ruta_guardar = ConfigurationManager.AppSettings["ServidorFotos"];
 
                     string extension = Path.GetExtension(archivoImagen.FileName);
                     string nombre_imagen = string.Concat(oProducto.IdProducto.ToString(), extension);
 
-                    //string ruta_guardar = await cnfirebase.SubirStorage(archivoImagen.InputStream, nombre_imagen);
+                    string ruta_guardar = await cnfirebase.SubirStorage(archivoImagen.InputStream, nombre_imagen);
 
-                    try
-                    {
-                        archivoImagen.SaveAs(Path.Combine(ruta_guardar, nombre_imagen));
+                    //try
+                    //{
+                    //    archivoImagen.SaveAs(Path.Combine(ruta_guardar, nombre_imagen));
 
-                    }
-                    catch (Exception ex)
-                    {
-                        string msg = ex.Message;
-                        guardar_imagen_exito = false;
-                    }
+                    //}
+                    //catch (Exception ex)
+                    //{
+                    //    string msg = ex.Message;
+                    //    guardar_imagen_exito = false;
+                    //}
 
-                    //guardar_imagen_exito = ruta_guardar != "" ? true : false;
+                    guardar_imagen_exito = ruta_guardar != "" ? true : false;
 
                     if (guardar_imagen_exito)
                     {
@@ -242,23 +242,23 @@ namespace CapaPresentacionAdmin.Controllers
         [HttpPost]
         public JsonResult ImagenProducto(int id) {
 
-            bool conversion;
+            //bool conversion;
             Producto oproducto = new CN_Producto().Listar().Where(p => p.IdProducto == id).FirstOrDefault();
 
-            string textoBase64 = CN_Recursos.ConvertirBase64(Path.Combine(oproducto.RutaImagen,oproducto.NombreImagen), out conversion );
+            //string textoBase64 = CN_Recursos.ConvertirBase64(Path.Combine(oproducto.RutaImagen,oproducto.NombreImagen), out conversion );
 
 
-            return Json(new
-            {
-                conversion = conversion,
-                textobase64 = textoBase64,
-                extension = Path.GetExtension(oproducto.NombreImagen)
+            //return Json(new
+            //{
+            //    conversion = conversion,
+            //    textobase64 = textoBase64,
+            //    extension = Path.GetExtension(oproducto.NombreImagen)
 
-            },
-             JsonRequestBehavior.AllowGet
-            );
+            //},
+            // JsonRequestBehavior.AllowGet
+            //);
 
-            //return Json(new { ruta = oproducto.RutaImagen }, JsonRequestBehavior.AllowGet);
+            return Json(new { ruta = oproducto.RutaImagen }, JsonRequestBehavior.AllowGet);
 
         }
 

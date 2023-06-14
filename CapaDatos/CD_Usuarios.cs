@@ -24,10 +24,8 @@ namespace CapaDatos
                 using (SqlConnection oconexion = new SqlConnection(Conexion.cn)) {
 
                     string query = "select IdUsuario,Nombres,Apellidos,Correo,Clave,Reestablecer,Activo,idRol from USUARIO";
-
                     SqlCommand cmd = new SqlCommand(query, oconexion);
                     cmd.CommandType = CommandType.Text;
-
                     oconexion.Open();
 
                     using (SqlDataReader  dr = cmd.ExecuteReader() ) {
@@ -43,8 +41,7 @@ namespace CapaDatos
                                     Reestablecer = Convert.ToBoolean(dr["Reestablecer"]),
                                     Activo = Convert.ToBoolean(dr["Activo"]),
                                     idRol= (Rol)(dr["idRol"])
-                                }
-                                
+                                }       
                                 );
                         }
                     }
@@ -55,11 +52,7 @@ namespace CapaDatos
                 lista = new List<Usuario>();
             
             }
-
-
             return lista;
-
-
         }
 
         public List<Usuario> ListarE()

@@ -28,38 +28,50 @@ namespace CapaPresentacionAdmin.Controllers
             return View();
         }
 
+        public ActionResult Bloqueado()
+        {
+            return View();
+        }
+        int cont=0;
         [HttpPost]
         public ActionResult Index(string correo, string clave)
         {
             Usuario oUsuario = new Usuario();
-
+            Usuario oUsuario1 = new Usuario();
             oUsuario = new CN_Usuarios().Listar().Where(u => u.Correo == correo && u.Clave == CN_Recursos.ConvertirSha256(clave)).FirstOrDefault();
+            oUsuario1 = new CN_Usuarios().Listar().Where(us => us.Correo == correo).FirstOrDefault();
 
+            if (oUsuario1 != null && oUsuario1.Clave != CN_Recursos.ConvertirSha256(clave))
+            {
+                cont++;
+                if (cont == 3)
+                {
+                    ViewBag.Error = "Usuario bloqueado.";
+                    return View("Bloqueado");
+                }
+            }
 
             if (oUsuario == null)
             {
-
                 ViewBag.Error = "Correo o contraseña no correcta";
                 return View();
             }
-            else {
-
-                if (oUsuario.Reestablecer) {
-
+            else
+            {
+                if (oUsuario.Reestablecer)
+                {
                     TempData["IdUsuario"] = oUsuario.IdUsuario;
                     return RedirectToAction("CambiarClave");
-
                 }
 
-
                 FormsAuthentication.SetAuthCookie(oUsuario.Correo, false);
-                Session["Usuario"]=oUsuario;
+                Session["Usuario"] = oUsuario;
 
                 ViewBag.Error = null;
-
                 return RedirectToAction("Index", "Home");
             }
         }
+
 
         [HttpPost]
         public ActionResult CambiarClave(string idusuario, string claveactual, string nuevaclave, string confirmarclave)

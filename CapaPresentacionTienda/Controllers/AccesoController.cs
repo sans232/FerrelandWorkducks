@@ -44,7 +44,11 @@ namespace CapaPresentacionTienda.Controllers
                 ViewBag.Error = "Las contraseñas no coinciden";
                 return View();
             }
-
+            if (!AlgoritmoContraseñaSegura(objeto.Clave))
+            {
+                ViewBag.Error = "La contraseña debe contener al menos una letra mayúscula, una letra minúscula, un número, un carácter especial y tener una longitud mínima de 8 caracteres.";
+                return View();
+            }
 
             resultado = new CN_Cliente().Registrar(objeto, out mensaje);
 
@@ -58,6 +62,35 @@ namespace CapaPresentacionTienda.Controllers
                 return View();
             }
 
+        }
+
+        private bool AlgoritmoContraseñaSegura(string password)
+        {
+            bool mayuscula = false, minuscula = false, numero = false, carespecial = false;
+            for (int i = 0; i < password.Length; i++)
+            {
+                if (Char.IsUpper(password, i))
+                {
+                    mayuscula = true;
+                }
+                else if (Char.IsLower(password, i))
+                {
+                    minuscula = true;
+                }
+                else if (Char.IsDigit(password, i))
+                {
+                    numero = true;
+                }
+                else
+                {
+                    carespecial = true;
+                }
+            }
+            if (mayuscula && minuscula && numero && carespecial && password.Length >= 8)
+            {
+                return true;
+            }
+            return false;
         }
 
         [HttpPost]

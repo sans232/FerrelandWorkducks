@@ -17,13 +17,13 @@
     </div>
 
     <div class="card-body">
-        <div class="row">
+        @*<div class="row">
             <div class="col-12">
                 <button type="button" class="btn btn-success" onclick="abrirModalProduc(null)">Crear Nuevo</button>
             </div>
         </div>
 
-        <hr />
+        <hr />*@
 
         <table id="tabla" class="display cell-border" style="width: 100%">
             <thead>
@@ -338,11 +338,11 @@
 
                          $("#img_producto").LoadingOverlay("hide");
 
-                        if (data.conversion) {
-                            $("#img_producto").attr({ "src": "data:image/" + data.extension + ";base64," + data.textobase64 });
-                        }
+                        //if (data.conversion) {
+                        //    $("#img_producto").attr({ "src": "data:image/" + data.extension + ";base64," + data.textobase64 });
+                        //}
 
-                         //$("#img_producto").attr({ "src": data.ruta});
+                         $("#img_producto").attr({ "src": data.ruta});
 
                     },
                     error: function (error) {

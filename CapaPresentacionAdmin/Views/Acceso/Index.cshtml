@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
@@ -32,17 +31,20 @@
                                         </div>
 
                                         @{
-                                            if (ViewBag.Error != null) { 
-                                                  <div class="form-floating mb-3">
-                                                      <div class="alert alert-danger" role="alert">
-                                                          @ViewBag.Error
-                                                      </div>
-                                                  </div>
+                                            if (ViewBag.Error != null)
+                                            {
+                                                <div class="form-floating mb-3">
+                                                    <div class="alert alert-danger" role="alert">
+                                                        @ViewBag.Error
+                                                    </div>
+                                                </div>
+
+                                                if (ViewBag.Script != null)
+                                                {
+                                                    @Html.Raw(ViewBag.Script)
+                                                }
                                             }
-                                         }
-
-                                        
-
+                                        }
 
                                         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                             <a class="small" href="@Url.Action("Reestablecer","Acceso")">¿Has olvidado tu  contraseña?</a>
@@ -51,7 +53,7 @@
                                     </form>
                                 </div>
                                 <div class="card-footer text-center py-3">
-                                    
+
                                 </div>
                             </div>
                         </div>

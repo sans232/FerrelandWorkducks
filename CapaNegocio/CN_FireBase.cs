@@ -20,11 +20,11 @@ namespace CapaNegocio
         public async Task<string> SubirStorage(Stream archivo, string nombre)
         {
             string UrlImagen = string.Empty;
-    
-            string email = "Ingrese aqui";
-            string clave = "Ingrese aqui";
-            string ruta = "Ingrese aqui";
-            string api_key = "Ingrese aqui";
+
+            string email = "sansypapyrus95@gmail.com";
+            string clave = "abc123";
+            string ruta = "ferrelandfire.appspot.com";
+            string api_key = "AIzaSyAwlZGUd7CxQ92Ea5sIO-8AIse4DYpwL04";
 
             try
             {

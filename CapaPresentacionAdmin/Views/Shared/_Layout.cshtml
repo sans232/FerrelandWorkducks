@@ -118,7 +118,7 @@
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3 my-5" href="index.html">
+        <a class="navbar-brand ps-3 my-5" href="@Url.Action("Index","Home")">
             <img src="~/Content/images/FerrelandLogoSFondo.png" width="150" height="150" />
         </a>
         <!-- Sidebar Toggle-->
@@ -150,11 +150,6 @@
                                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                     Dashboard
                                 </a>
-
-                                @*<a class="nav-link" href="@Url.Action("Usuarios","Home")">
-                                        <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
-                                        Usuarios
-                                    </a>*@
                                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                     <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                                     Usuarios
@@ -192,11 +187,6 @@
                                         <a class="nav-link" href="#" onclick="abrirModalM(null)">Registrar Marca</a>
                                     </nav>
                                 </div>
-                                @*<a class="nav-link" href="@Url.Action("Marca","Mantenedor")">
-                                        <div class="sb-nav-link-icon"><i class="fas fa-bookmark"></i></div>
-                                        Marcas
-                                    </a>*@
-
                                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayoutsP" aria-expanded="false" aria-controls="collapseLayouts">
                                     <div class="sb-nav-link-icon"><i class="fas fa-boxes"></i></div>
                                     Productos
@@ -209,10 +199,10 @@
                                     </nav>
                                 </div>
 
-                                <a class="nav-link" href="@Url.Action("Producto","Mantenedor")">
+                                @*<a class="nav-link" href="@Url.Action("Producto","Mantenedor")">
                                     <div class="sb-nav-link-icon"><i class="fas fa-boxes"></i></div>
                                     Productos
-                                </a>
+                                </a>*@
                                 <a class="nav-link" href="@Url.Action("Compra","Mantenedor")">
                                     <div class="sb-nav-link-icon"><i class="fas fa-shopping-bag"></i></div>
                                     Compras
@@ -519,10 +509,6 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- ==== GSAP CDN ==== -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
-    @*<li>@Html.ActionLink("Inicio Pagina", "Index", "Home")</li>
-        <li>@Html.ActionLink("Acerca de test", "About", "Home")</li>
-        <li>@Html.ActionLink("Contacto mirame", "Contact", "Home")</li>
-        <li>@Html.ActionLink("Pagina de pruebas", "PaginaTest", "Home")</li>*@
     <
 <script>
     var tabladata;
