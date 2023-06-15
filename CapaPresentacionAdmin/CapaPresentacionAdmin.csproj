@@ -540,6 +540,7 @@
     <Content Include="Views\Home\Dashboard.cshtml" />
     <Content Include="Views\Home\CrearUsuario.cshtml" />
     <Content Include="Views\Acceso\Bloqueado.cshtml" />
+    <Content Include="Views\Home\Clientes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

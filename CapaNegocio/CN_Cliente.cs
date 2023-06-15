@@ -55,7 +55,34 @@ namespace CapaNegocio
             return objCapaDato.Listar();
         }
 
+        public bool Editar(Cliente obj, out string Mensaje)
+        {
 
+            Mensaje = string.Empty;
+
+            if (string.IsNullOrEmpty(obj.Nombres) || string.IsNullOrWhiteSpace(obj.Nombres))
+            {
+                Mensaje = "El nombre del cliente no puede ser vacio";
+            }
+            else if (string.IsNullOrEmpty(obj.Apellidos) || string.IsNullOrWhiteSpace(obj.Apellidos))
+            {
+                Mensaje = "El apellido del cliente no puede ser vacio";
+            }
+            else if (string.IsNullOrEmpty(obj.Correo) || string.IsNullOrWhiteSpace(obj.Correo))
+            {
+                Mensaje = "El correo del cliente no puede ser vacio";
+            }
+
+            if (string.IsNullOrEmpty(Mensaje))
+            {
+
+                return objCapaDato.Editar(obj, out Mensaje);
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         public bool CambiarClave(int idcliente, string nuevaclave, out string Mensaje)
         {

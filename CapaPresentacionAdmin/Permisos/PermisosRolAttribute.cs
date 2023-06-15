@@ -25,6 +25,17 @@ namespace CapaPresentacionAdmin.Permisos
             }
             return 0; // O cualquier valor predeterminado en caso de que la sesión no tenga un usuario o el usuario no tenga un idRol válido.
         }
+        public static string ObtenerNombApel()
+        {
+            string nombreapel="";
+            if (HttpContext.Current.Session["Usuario"] != null)
+            {
+                Usuario usuario = HttpContext.Current.Session["Usuario"] as Usuario;
+                nombreapel = usuario.Nombres + " " + usuario.Apellidos;
+                return nombreapel;
+            }
+            return "Error"; // O cualquier valor predeterminado en caso de que la sesión no tenga un usuario o el usuario no tenga un idRol válido.
+        }
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             if (HttpContext.Current.Session["Usuario"] != null)

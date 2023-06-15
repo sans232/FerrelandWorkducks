@@ -21,10 +21,10 @@ namespace CapaNegocio
         {
             string UrlImagen = string.Empty;
 
-            string email = "sansypapyrus95@gmail.com";
-            string clave = "abc123";
-            string ruta = "ferrelandfire.appspot.com";
-            string api_key = "AIzaSyAwlZGUd7CxQ92Ea5sIO-8AIse4DYpwL04";
+            string email = "ferrelandbolivia@gmail.com";
+            string clave = "frrlndbol123";
+            string ruta = "imgferreland-1f943.appspot.com";
+            string api_key = "AIzaSyA8cS-pvE3oSbWxrhrgSQrL2FveYoqhFz8";
 
             try
             {

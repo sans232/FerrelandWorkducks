@@ -89,18 +89,18 @@
                                 <div class="card-body bg-light">
                                     <h5 class="card-title">Detalle Envio</h5>
                                     <form>
-                                        <div class="mb-2">
-                                            <label for="cbodepartamento" class="form-label">Región: </label>
-                                            <select class="form-select form-select-sm" id="cbodepartamento"></select>
+                                         @*<div class="mb-2">
+                                            <label for="cbodepartamento" class="form-label" type="hidden">Región: </label>
+                                            <select class="form-select form-select-sm" id="cbodepartamento" type="hidden"></select>
                                         </div>
                                         <div class="mb-2">
-                                            <label for="cboprovincia" class="form-label">Estado: </label>
+                                            <label for="cboprovincia" class="form-label" type="hidden">Estado: </label>
                                             <select class="form-select form-select-sm" id="cboprovincia"></select>
                                         </div>
                                         <div class="mb-2">
-                                            <label for="cbodistrito" class="form-label">Distrito:</label>
+                                            <label for="cbodistrito" class="form-label" type="hidden">Distrito:</label>
                                             <select class="form-select form-select-sm" id="cbodistrito"></select>
-                                        </div>
+                                        </div>*@
                                         <div class="mb-2">
                                             <label for="exampleInputEmail1" class="form-label">Nombre Contacto:</label>
                                             <input type="text" class="form-control form-control-sm" id="txtnombrecontacto" autocomplete="off">
@@ -122,7 +122,10 @@
                                 </div>
 
                             </div>
-
+                            <br />
+                            <button class="btn btn btn-info" type="button" onclick="RealizarPago()">
+                                Realizar reserva
+                            </button>
                         </div>
 
                     </div>
@@ -161,7 +164,8 @@
 
                                         //1.-
                                         $("<div>").addClass("col-sm-2 align-self-center d-flex justify-content-center").append(
-                                            $("<img>").addClass("rounded").attr({ "src": "data:image/" + item.oProducto.Extension + ";base64," + item.oProducto.Base64 })
+                                            /*$("<img>").addClass("rounded").attr({ "src": "data:image/" + item.oProducto.Extension + ";base64," + item.oProducto.Base64 })*/
+                                            $("<img>").addClass("rounded").attr({ "src": item.oProducto.RutaImagen })
                                                 .css({ "width": "100px", "height": "100px" })
                                         ),
 

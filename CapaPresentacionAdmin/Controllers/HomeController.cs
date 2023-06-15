@@ -23,6 +23,7 @@ namespace CapaPresentacionAdmin.Controllers
         {
             return View();
         }
+
         public ActionResult Dashboard()
         {
             return View();
@@ -30,6 +31,11 @@ namespace CapaPresentacionAdmin.Controllers
 
         [PermisosRol(CapaEntidad.Rol.Administrador)]
         public ActionResult Usuarios()
+        {
+            return View();
+        }
+        [PermisosRol(CapaEntidad.Rol.Administrador)]
+        public ActionResult Clientes()
         {
             return View();
         }
@@ -69,6 +75,19 @@ namespace CapaPresentacionAdmin.Controllers
             return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
 
         }
+        [HttpGet]
+        public JsonResult ListarClientes()
+        {
+
+
+            List<Cliente> oLista = new List<Cliente>();
+
+            oLista = new CN_Cliente().Listar();
+
+
+            return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
+
+        }
 
         public JsonResult ListarCompras()
         {
@@ -97,6 +116,25 @@ namespace CapaPresentacionAdmin.Controllers
             else {
                 resultado = new CN_Usuarios().Editar(objeto, out mensaje);
             
+            }
+
+            return Json(new { resultado = resultado, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        public JsonResult GuardarCliente(Cliente objeto)
+        {
+            object resultado;
+            string mensaje = string.Empty;
+
+            if (objeto.IdCliente == 0)
+            {
+
+                resultado = new CN_Cliente().Registrar(objeto, out mensaje);
+            }
+            else
+            {
+                resultado = new CN_Cliente().Editar(objeto, out mensaje);
+
             }
 
             return Json(new { resultado = resultado, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
