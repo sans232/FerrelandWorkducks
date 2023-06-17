@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 
@@ -12,6 +10,8 @@ using CapaEntidad;
 using CapaNegocio;
 using ClosedXML.Excel;
 using CapaPresentacionAdmin.Permisos;
+using OfficeOpenXml;
+using System.Data.SqlClient;
 
 namespace CapaPresentacionAdmin.Controllers
 {
@@ -238,6 +238,33 @@ namespace CapaPresentacionAdmin.Controllers
 
         }
 
+        public ActionResult DescargarInformeExcel()
+        {
+            byte[] informeBytes = new CN_Reporte().GenerarInformeUsuariosExcel();
+            
+     
+            Response.Clear();
+            Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+            Response.AddHeader("content-disposition", "attachment;  filename=Usuarios.xlsx");
+            Response.BinaryWrite(informeBytes);
+            Response.End();
+
+            return new EmptyResult();
+        }
+
+        public ActionResult DescargarInformeExcelClientes()
+        {
+            byte[] informeBytes = new CN_Reporte().GenerarInformeClientesExcel();
+
+
+            Response.Clear();
+            Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+            Response.AddHeader("content-disposition", "attachment;  filename=Clientes.xlsx");
+            Response.BinaryWrite(informeBytes);
+            Response.End();
+
+            return new EmptyResult();
+        }
 
 
     }

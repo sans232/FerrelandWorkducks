@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 
 using CapaEntidad;
-
+using OfficeOpenXml;
 using System.Data.SqlClient;
+
 using System.Data;
 using System.Globalization;
 using System.Runtime.InteropServices.ComTypes;
@@ -69,7 +70,265 @@ namespace CapaDatos
 
         }
 
+        public byte[] GenerarInformeUsuariosExcel()
+        {
+            
+            string query = "SELECT Nombres, Apellidos, Correo, Activo, FechaRegistro FROM USUARIO ORDER BY CONVERT(DATE, FechaRegistro, 105) DESC";
 
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cn))
+            {
+                using (SqlCommand command = new SqlCommand(query, oconexion))
+                {
+                    oconexion.Open();
+                    DataTable dataTable = new DataTable();
+                    dataTable.Load(command.ExecuteReader());
+                    ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+                    using (ExcelPackage package = new ExcelPackage())
+                    {
+                        ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("Reporte de usuarioss");
+
+                        // Escribir encabezados de columnas
+                        worksheet.Cells[1, 1].Value = "Nombres";
+                        worksheet.Cells[1, 2].Value = "Apellidos";
+                        worksheet.Cells[1, 3].Value = "Correo";
+                        worksheet.Cells[1, 4].Value = "Activo";
+                        worksheet.Cells[1, 5].Value = "Fecha de registro";
+                        // Escribir datos de la tabla
+                        for (int row = 0; row < dataTable.Rows.Count; row++)
+                        {
+                            worksheet.Cells[row + 2, 1].Value = dataTable.Rows[row]["Nombres"].ToString();
+                            worksheet.Cells[row + 2, 2].Value = dataTable.Rows[row]["Apellidos"].ToString();
+                            worksheet.Cells[row + 2, 3].Value = dataTable.Rows[row]["Correo"].ToString();
+                            worksheet.Cells[row + 2, 4].Value = dataTable.Rows[row]["Activo"].ToString();
+                            worksheet.Cells[row + 2, 5].Value = dataTable.Rows[row]["FechaRegistro"].ToString();
+                        }
+
+                        // Autoajustar el ancho de las columnas
+                        worksheet.Cells[worksheet.Dimension.Address].AutoFitColumns();
+
+                        // Convertir el paquete Excel a una secuencia de bytes
+                        return package.GetAsByteArray();
+                    }
+                }
+            }
+        }
+
+        public byte[] GenerarInformeClientesExcel()
+        {
+
+            string query = "SELECT Nombres, Apellidos, Correo, FechaRegistro FROM CLIENTE ORDER BY CONVERT(DATE, FechaRegistro, 105) DESC";
+
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cn))
+            {
+                using (SqlCommand command = new SqlCommand(query, oconexion))
+                {
+                    oconexion.Open();
+                    DataTable dataTable = new DataTable();
+                    dataTable.Load(command.ExecuteReader());
+                    ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+                    using (ExcelPackage package = new ExcelPackage())
+                    {
+                        ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("Reporte de clientes");
+
+                        // Escribir encabezados de columnas
+                        worksheet.Cells[1, 1].Value = "Nombres";
+                        worksheet.Cells[1, 2].Value = "Apellidos";
+                        worksheet.Cells[1, 3].Value = "Correo";
+                        worksheet.Cells[1, 4].Value = "Fecha de registro";
+                        // Escribir datos de la tabla
+                        for (int row = 0; row < dataTable.Rows.Count; row++)
+                        {
+                            worksheet.Cells[row + 2, 1].Value = dataTable.Rows[row]["Nombres"].ToString();
+                            worksheet.Cells[row + 2, 2].Value = dataTable.Rows[row]["Apellidos"].ToString();
+                            worksheet.Cells[row + 2, 3].Value = dataTable.Rows[row]["Correo"].ToString();
+
+                            worksheet.Cells[row + 2, 4].Value = dataTable.Rows[row]["FechaRegistro"].ToString();
+                        }
+
+                        // Autoajustar el ancho de las columnas
+                        worksheet.Cells[worksheet.Dimension.Address].AutoFitColumns();
+
+                        // Convertir el paquete Excel a una secuencia de bytes
+                        return package.GetAsByteArray();
+                    }
+                }
+            }
+        }
+
+        public byte[] GenerarInformeCategoriasExcel()
+        {
+
+            string query = "SELECT Descripcion, Activo, FechaRegistro FROM CATEGORIA ORDER BY CONVERT(DATE, FechaRegistro, 105) DESC";
+
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cn))
+            {
+                using (SqlCommand command = new SqlCommand(query, oconexion))
+                {
+                    oconexion.Open();
+                    DataTable dataTable = new DataTable();
+                    dataTable.Load(command.ExecuteReader());
+                    ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+                    using (ExcelPackage package = new ExcelPackage())
+                    {
+                        ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("Reporte de categoria");
+
+                        // Escribir encabezados de columnas
+                        worksheet.Cells[1, 1].Value = "Descripcion";
+                        worksheet.Cells[1, 2].Value = "Activo";
+                        worksheet.Cells[1, 3].Value = "Fecha de registro";
+                        // Escribir datos de la tabla
+                        for (int row = 0; row < dataTable.Rows.Count; row++)
+                        {
+                            worksheet.Cells[row + 2, 1].Value = dataTable.Rows[row]["Descripcion"].ToString();
+                            worksheet.Cells[row + 2, 2].Value = dataTable.Rows[row]["Activo"].ToString();
+
+                            worksheet.Cells[row + 2, 3].Value = dataTable.Rows[row]["FechaRegistro"].ToString();
+                        }
+
+                        // Autoajustar el ancho de las columnas
+                        worksheet.Cells[worksheet.Dimension.Address].AutoFitColumns();
+
+                        // Convertir el paquete Excel a una secuencia de bytes
+                        return package.GetAsByteArray();
+                    }
+                }
+            }
+        }
+
+        public byte[] GenerarInformeMarcasExcel()
+        {
+
+            string query = "SELECT Descripcion, Activo, FechaRegistro FROM MARCA ORDER BY CONVERT(DATE, FechaRegistro, 105) DESC";
+
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cn))
+            {
+                using (SqlCommand command = new SqlCommand(query, oconexion))
+                {
+                    oconexion.Open();
+                    DataTable dataTable = new DataTable();
+                    dataTable.Load(command.ExecuteReader());
+                    ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+                    using (ExcelPackage package = new ExcelPackage())
+                    {
+                        ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("Reporte de marca");
+
+                        // Escribir encabezados de columnas
+                        worksheet.Cells[1, 1].Value = "Descripcion";
+                        worksheet.Cells[1, 2].Value = "Activo";
+                        worksheet.Cells[1, 3].Value = "Fecha de registro";
+                        // Escribir datos de la tabla
+                        for (int row = 0; row < dataTable.Rows.Count; row++)
+                        {
+                            worksheet.Cells[row + 2, 1].Value = dataTable.Rows[row]["Descripcion"].ToString();
+                            worksheet.Cells[row + 2, 2].Value = dataTable.Rows[row]["Activo"].ToString();
+
+                            worksheet.Cells[row + 2, 3].Value = dataTable.Rows[row]["FechaRegistro"].ToString();
+                        }
+
+                        // Autoajustar el ancho de las columnas
+                        worksheet.Cells[worksheet.Dimension.Address].AutoFitColumns();
+
+                        // Convertir el paquete Excel a una secuencia de bytes
+                        return package.GetAsByteArray();
+                    }
+                }
+            }
+        }
+
+        public byte[] GenerarInformeProductosExcel()
+        {
+
+            string query = "SELECT p.Nombre, p.Descripcion,m.Descripcion as Descripcion2,c.Descripcion as Descripcion3,p.Stock,p.Activo,p.FechaRegistro FROM PRODUCTO as p, MARCA as m, CATEGORIA as c where p.idMarca=m.IdMarca and p.IdCategoria=c.IdCategoria ORDER BY CONVERT(DATE, p.FechaRegistro, 105) DESC";
+
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cn))
+            {
+                using (SqlCommand command = new SqlCommand(query, oconexion))
+                {
+                    oconexion.Open();
+                    DataTable dataTable = new DataTable();
+                    dataTable.Load(command.ExecuteReader());
+                    ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+                    using (ExcelPackage package = new ExcelPackage())
+                    {
+                        ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("Reporte de productos");
+
+                        // Escribir encabezados de columnas
+                        worksheet.Cells[1, 1].Value = "Nombre";
+                        worksheet.Cells[1, 2].Value = "Descripcion";
+                        worksheet.Cells[1, 3].Value = "Marca";
+                        worksheet.Cells[1, 4].Value = "Categoria";
+                        worksheet.Cells[1, 5].Value = "Stock";
+                        worksheet.Cells[1, 6].Value = "Activo";
+                        worksheet.Cells[1, 7].Value = "Fecha de registro";
+                        // Escribir datos de la tabla
+                        for (int row = 0; row < dataTable.Rows.Count; row++)
+                        {
+                            worksheet.Cells[row + 2, 1].Value = dataTable.Rows[row]["Nombre"].ToString();
+                            worksheet.Cells[row + 2, 2].Value = dataTable.Rows[row]["Descripcion"].ToString();
+                            worksheet.Cells[row + 2, 3].Value = dataTable.Rows[row]["Descripcion2"].ToString();
+                            worksheet.Cells[row + 2, 4].Value = dataTable.Rows[row]["Descripcion3"].ToString();
+                            worksheet.Cells[row + 2, 5].Value = dataTable.Rows[row]["Stock"].ToString();
+                            worksheet.Cells[row + 2, 6].Value = dataTable.Rows[row]["Activo"].ToString();
+                            worksheet.Cells[row + 2, 7].Value = dataTable.Rows[row]["FechaRegistro"].ToString();
+                        }
+
+                        // Autoajustar el ancho de las columnas
+                        worksheet.Cells[worksheet.Dimension.Address].AutoFitColumns();
+
+                        // Convertir el paquete Excel a una secuencia de bytes
+                        return package.GetAsByteArray();
+                    }
+                }
+            }
+        }
+
+        public byte[] GenerarInformeComprasExcel()
+        {
+
+            string query = @"SELECT  p.Nombre AS NomProduct, c.precioCompra
+            , u.Nombres AS NomUser, u.Apellidos AS ApeUser,
+            c.cantidad
+            FROM Compra c
+            INNER JOIN PRODUCTO p ON p.IdProducto = c.idProducto
+            INNER JOIN USUARIO u ON u.IdUsuario = c.idEmpleado";
+
+            using (SqlConnection oconexion = new SqlConnection(Conexion.cn))
+            {
+                using (SqlCommand command = new SqlCommand(query, oconexion))
+                {
+                    oconexion.Open();
+                    DataTable dataTable = new DataTable();
+                    dataTable.Load(command.ExecuteReader());
+                    ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+                    using (ExcelPackage package = new ExcelPackage())
+                    {
+                        ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("Reporte de compras");
+
+                        // Escribir encabezados de columnas
+                        worksheet.Cells[1, 1].Value = "Producto";
+                        worksheet.Cells[1, 2].Value = "Precio de compra";
+                        worksheet.Cells[1, 3].Value = "Nombre comprador";
+                        worksheet.Cells[1, 4].Value = "Apellido comprador";
+                        worksheet.Cells[1, 5].Value = "Cantidad";
+                        // Escribir datos de la tabla
+                        for (int row = 0; row < dataTable.Rows.Count; row++)
+                        {
+                            worksheet.Cells[row + 2, 1].Value = dataTable.Rows[row]["NomProduct"].ToString();
+                            worksheet.Cells[row + 2, 2].Value = dataTable.Rows[row]["precioCompra"].ToString();
+                            worksheet.Cells[row + 2, 3].Value = dataTable.Rows[row]["NomUser"].ToString();
+                            worksheet.Cells[row + 2, 4].Value = dataTable.Rows[row]["ApeUser"].ToString();
+                            worksheet.Cells[row + 2, 5].Value = dataTable.Rows[row]["cantidad"].ToString();
+                        }
+
+                        // Autoajustar el ancho de las columnas
+                        worksheet.Cells[worksheet.Dimension.Address].AutoFitColumns();
+
+                        // Convertir el paquete Excel a una secuencia de bytes
+                        return package.GetAsByteArray();
+                    }
+                }
+            }
+        }
 
         public DashBoard VerDashBoard()
         {

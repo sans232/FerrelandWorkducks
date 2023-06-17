@@ -9,11 +9,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-
+using ClosedXML.Excel;
 using CapaEntidad;
 using CapaNegocio;
 using Newtonsoft.Json;
 using CapaPresentacionAdmin.Permisos;
+using OfficeOpenXml;
+
 
 namespace CapaPresentacionAdmin.Controllers
 {
@@ -39,6 +41,58 @@ namespace CapaPresentacionAdmin.Controllers
         public ActionResult Compra()
         {
             return View();
+        }
+        public ActionResult DescargarInformeExcelMarcas()
+        {
+            byte[] informeBytes = new CN_Reporte().GenerarInformeMarcasExcel();
+
+
+            Response.Clear();
+            Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+            Response.AddHeader("content-disposition", "attachment;  filename=Marcas.xlsx");
+            Response.BinaryWrite(informeBytes);
+            Response.End();
+
+            return new EmptyResult();
+        }
+        public ActionResult DescargarInformeExcelCategorias()
+        {
+            byte[] informeBytes = new CN_Reporte().GenerarInformeCategoriasExcel();
+
+
+            Response.Clear();
+            Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+            Response.AddHeader("content-disposition", "attachment;  filename=Categorias.xlsx");
+            Response.BinaryWrite(informeBytes);
+            Response.End();
+
+            return new EmptyResult();
+        }
+        public ActionResult DescargarInformeExcelProductos()
+        {
+            byte[] informeBytes = new CN_Reporte().GenerarInformeProductosExcel();
+
+
+            Response.Clear();
+            Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+            Response.AddHeader("content-disposition", "attachment;  filename=Productos.xlsx");
+            Response.BinaryWrite(informeBytes);
+            Response.End();
+
+            return new EmptyResult();
+        }
+        public ActionResult DescargarInformeExcelCompras()
+        {
+            byte[] informeBytes = new CN_Reporte().GenerarInformeComprasExcel();
+
+
+            Response.Clear();
+            Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+            Response.AddHeader("content-disposition", "attachment;  filename=Compras.xlsx");
+            Response.BinaryWrite(informeBytes);
+            Response.End();
+
+            return new EmptyResult();
         }
 
         public ActionResult SinPermiso()
@@ -426,5 +480,7 @@ namespace CapaPresentacionAdmin.Controllers
         //}
 
     }
-        #endregion
-    }
+    #endregion
+
+    
+}

@@ -20,6 +20,31 @@ namespace CapaNegocio
             return objCapaDato.Ventas(fechainicio,fechafin,idtransaccion);
         }
 
+        public byte[] GenerarInformeUsuariosExcel()
+        {
+            return objCapaDato.GenerarInformeUsuariosExcel();
+        }
+        public byte[] GenerarInformeClientesExcel()
+        {
+            return objCapaDato.GenerarInformeClientesExcel();
+        }
+        public byte[] GenerarInformeMarcasExcel()
+        {
+            return objCapaDato.GenerarInformeMarcasExcel();
+        }
+        public byte[] GenerarInformeCategoriasExcel()
+        {
+            return objCapaDato.GenerarInformeCategoriasExcel();
+        }
+
+        public byte[] GenerarInformeProductosExcel()
+        {
+            return objCapaDato.GenerarInformeProductosExcel();
+        }
+        public byte[] GenerarInformeComprasExcel()
+        {
+            return objCapaDato.GenerarInformeComprasExcel();
+        }
 
         public DashBoard VerDashBoard()
         {
