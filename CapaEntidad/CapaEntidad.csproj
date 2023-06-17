@@ -73,6 +73,7 @@
     <Compile Include="Provincia.cs" />
     <Compile Include="Reporte.cs" />
     <Compile Include="Rol.cs" />
+    <Compile Include="Top5Productos.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="Venta.cs" />
   </ItemGroup>

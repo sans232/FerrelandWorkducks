@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,11 @@ namespace CapaNegocio
         public DashBoard VerDashBoard()
         {
             return objCapaDato.VerDashBoard();
+        }
+        public List<Top5Productos> top5Productos()
+        {
+            List<Top5Productos> topProductos = objCapaDato.ObtenerTopProductos();
+            return topProductos;
         }
 
     }

@@ -164,7 +164,15 @@ namespace CapaPresentacionAdmin.Controllers
             return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpGet]
+        public JsonResult ListarTopProductos()
+        {
 
+            List<Top5Productos> oLista = new List<Top5Productos>();
+            oLista = new CN_Reporte().top5Productos();
+            return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
+
+        }
 
 
 
