@@ -194,90 +194,54 @@ namespace CapaDatos
             return topProductos;
         }
 
-        static decimal Indicador(int numDias)
-        {
-            string connectionString = "Data Source=34.227.55.226;Initial Catalog=workduck_misdb;User Id=MisUser;Password=MisDb123zzs;";
-            // Obtener la fecha actual y la fecha hace X días
-            DateTime fechaActual = DateTime.Now.Date;
-            DateTime fechaAnterior = fechaActual.AddDays(-numDias);
-
-
-
-            // Consulta SQL para obtener el total de ganancias en el periodo especificado
-            string query = $@"
-                SELECT 
-                    SUM(TotalAmount) AS Ganancias
-                FROM 
-                    [Order]
-                WHERE 
-                    OrderDate >= @FechaAnterior AND OrderDate <= @FechaActual";
-
-
-
-            // Variables para almacenar los resultados
-            decimal gananciasActual = 0;
-            decimal gananciasAnterior = 0;
-            decimal porcentajeGananciaPerdida = 0;
-
-
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            public decimal Indicador(string fechainicio, string fechafin)
             {
-                connection.Open();
+                // Obtener la fecha actual y la fecha hace X días
+                DateTime fechaActual = DateTime.Parse(fechafin);
+                DateTime fechaAnterior = DateTime.Parse(fechainicio);
 
 
 
-                // Obtener ganancias del periodo actual
-                SqlCommand command = new SqlCommand(query, connection);
-                command.Parameters.AddWithValue("@FechaAnterior", fechaAnterior);
-                command.Parameters.AddWithValue("@FechaActual", fechaActual);
-                SqlDataReader reader = command.ExecuteReader();
+                // Consulta SQL para obtener el total de ganancias en el periodo especificado
+                string query = $@"
+                    SELECT 
+                        SUM(MontoTotal) AS Ganancias
+                    FROM 
+                        VENTA
+                    WHERE 
+                        FechaVenta >= @FechaAnterior AND FechaVenta <= @FechaActual";
 
 
 
-                if (reader.Read())
+                // Variables para almacenar los resultados
+                decimal gananciasActual = 0;
+
+
+
+                using (SqlConnection connection = new SqlConnection(Conexion.cn))
                 {
-                    if (!reader.IsDBNull(0))
+                    connection.Open();
+
+
+
+                    // Obtener ganancias del periodo actual
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@FechaAnterior", fechaAnterior);
+                    command.Parameters.AddWithValue("@FechaActual", fechaActual);
+                    SqlDataReader reader = command.ExecuteReader();
+
+
+
+                    if (reader.Read())
                     {
-                        gananciasActual = reader.GetDecimal(0);
+                        if (!reader.IsDBNull(0))
+                        {
+                            gananciasActual = reader.GetDecimal(0);
+                        }
                     }
+                    reader.Close();
                 }
-                reader.Close();
-
-
-
-                // Obtener ganancias del periodo anterior
-                command.Parameters["@FechaAnterior"].Value = fechaAnterior.AddDays(-numDias);
-                command.Parameters["@FechaActual"].Value = fechaActual.AddDays(-numDias);
-                reader = command.ExecuteReader();
-
-
-
-                if (reader.Read())
-                {
-                    if (!reader.IsDBNull(0))
-                    {
-                        gananciasAnterior = reader.GetDecimal(0);
-                    }
-                }
-                reader.Close();
-
-
-
-                // Calcular el porcentaje de ganancia o pérdida
-                if (gananciasAnterior != 0)
-                {
-                    porcentajeGananciaPerdida = ((gananciasActual - gananciasAnterior) / gananciasAnterior) * 100;
-                }
-
-
-
-                connection.Close();
+                return gananciasActual;
             }
-
-
-
-            return porcentajeGananciaPerdida;
-        }
     }
 }

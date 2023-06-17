@@ -30,6 +30,10 @@ namespace CapaNegocio
             List<Top5Productos> topProductos = objCapaDato.ObtenerTopProductos();
             return topProductos;
         }
+        public decimal VerIndicador(string fechainicio, string fechafin)
+        {
+            return objCapaDato.Indicador(fechainicio, fechafin);
+        }
 
     }
 }

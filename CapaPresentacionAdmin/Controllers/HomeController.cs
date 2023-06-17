@@ -183,7 +183,13 @@ namespace CapaPresentacionAdmin.Controllers
             return Json(new { resultado = objeto}, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpGet]
+        public JsonResult VistaIndicador(string fechainicio, string fechafin)
+        {
+            decimal objeto = new CN_Reporte().VerIndicador(fechainicio, fechafin);
 
+            return Json(new { resultado = objeto }, JsonRequestBehavior.AllowGet);
+        }
 
         [HttpPost]
         public FileResult ExportarVenta(string fechainicio, string fechafin, string idtransaccion) {

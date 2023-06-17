@@ -219,6 +219,7 @@
 
 
         var tabladata;
+        var ganancia;
 
         $(document).ready(function () {
 
@@ -242,6 +243,22 @@
 
                 }
              });
+
+            var UrlI = '@Url.Action("VistaIndicador", "Home")' +
+            "?fechainicio=" + $("#txtfechainicio").val() +
+            "&fechafin=" + $("#txtfechafin").val()
+
+            jQuery.ajax({
+                url: UrlI,
+                type: "GET",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    var gananciasActual = data.resultado;
+
+                    $("#totalganancias").text(gananciasActual);
+                }
+            });
              @*jQuery.ajax({
                 url: '@Url.Action("ListarTopProductos", "Home")',
                 type: "GET",
@@ -273,7 +290,7 @@
                         // Limpiar contenido previo de la tabla
                         tableBody.empty();
 
-                        
+
 
                         // Agregar filas de la tabla con los datos de ListarTopProductos
                         $.each(data.data, function (index, item) {
@@ -329,9 +346,22 @@
             "?fechainicio=" + $("#txtfechainicio").val() +
             "&fechafin=" + $("#txtfechafin").val() +
                 "&idtransaccion=" + $("#txtidtransaccion").val()
-
+             var nueva_urlI = '@Url.Action("VistaIndicador", "Home")' +
+            "?fechainicio=" + $("#txtfechainicio").val() +
+            "&fechafin=" + $("#txtfechafin").val()
 
             tabladata.ajax.url(nueva_url).load();
+
+            jQuery.ajax({
+                url: nueva_urlI,
+                type: "GET",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    var ganancia = data.resultado;
+                    $("#totalganancias").text(ganancia);
+                }
+            });
 
         })
 
