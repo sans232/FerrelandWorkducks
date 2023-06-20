@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-
-using CapaDatos;
+﻿using CapaDatos;
 using CapaEntidad;
+using System.Collections.Generic;
 
 namespace CapaNegocio
 {
@@ -20,7 +14,7 @@ namespace CapaNegocio
 
         public List<Producto> ObtenerProductos(int idMarca, int idCategoria, int nroPagina, int obtenerRegistros, out int TotalRegistros, out int TotalPaginas)
         {
-            return objCapaDato.ObtenerProductos(idMarca,idCategoria,nroPagina,obtenerRegistros, out TotalRegistros, out TotalPaginas);
+            return objCapaDato.ObtenerProductos(idMarca, idCategoria, nroPagina, obtenerRegistros, out TotalRegistros, out TotalPaginas);
 
         }
 
@@ -50,7 +44,8 @@ namespace CapaNegocio
             {
                 Mensaje = "Debe seleccionar una categoria";
             }
-            else if (obj.Precio == 0) {
+            else if (obj.Precio == 0)
+            {
 
                 Mensaje = "Debe ingrear el precio del producto";
             }
@@ -134,7 +129,8 @@ namespace CapaNegocio
             }
         }
 
-        public bool GuardarDatosImagen(Producto obj, out string Mensaje) {
+        public bool GuardarDatosImagen(Producto obj, out string Mensaje)
+        {
 
             return objCapaDato.GuardarDatosImagen(obj, out Mensaje);
         }

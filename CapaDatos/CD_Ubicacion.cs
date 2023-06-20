@@ -1,15 +1,7 @@
-﻿using System;
+﻿using CapaEntidad;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-
-
-using CapaEntidad;
-
-using System.Data.SqlClient;
 using System.Data;
+using System.Data.SqlClient;
 
 
 namespace CapaDatos
@@ -100,7 +92,7 @@ namespace CapaDatos
         }
 
 
-        public List<Distrito> ObtenerDistrito(string iddepartamento,string idprovincia)
+        public List<Distrito> ObtenerDistrito(string iddepartamento, string idprovincia)
         {
             List<Distrito> lista = new List<Distrito>();
 

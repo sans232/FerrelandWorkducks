@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-using CapaEntidad;
+﻿using CapaEntidad;
+using CapaEntidad.Paypal;
 using CapaNegocio;
-
-using System.IO;
-using System.Threading.Tasks;
+using CapaPresentacionTienda.Filter;
+using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
-
-using CapaPresentacionTienda.Filter;
-using CapaEntidad.Paypal;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace CapaPresentacionTienda.Controllers
 {
@@ -24,7 +20,7 @@ namespace CapaPresentacionTienda.Controllers
         {
             return View();
         }
-        
+
         public ActionResult Slider()
         {
             return View();
@@ -39,7 +35,8 @@ namespace CapaPresentacionTienda.Controllers
             oProducto = new CN_Producto().Listar().Where(p => p.IdProducto == idproducto).FirstOrDefault();
 
 
-            if (oProducto != null) {
+            if (oProducto != null)
+            {
                 oProducto.Base64 = CN_Recursos.ConvertirBase64(Path.Combine(oProducto.RutaImagen, oProducto.NombreImagen), out conversion);
                 oProducto.Extension = Path.GetExtension(oProducto.NombreImagen);
             }
@@ -57,7 +54,8 @@ namespace CapaPresentacionTienda.Controllers
         }
 
         [HttpGet]
-        public JsonResult ListaCategorias() {
+        public JsonResult ListaCategorias()
+        {
             List<Categoria> lista = new List<Categoria>();
             lista = new CN_Categoria().Listar();
             return Json(new { data = lista }, JsonRequestBehavior.AllowGet);
@@ -72,7 +70,8 @@ namespace CapaPresentacionTienda.Controllers
         }
 
         [HttpPost]
-        public JsonResult ListarProducto(int idcategoria, int idmarca, int nroPagina) {
+        public JsonResult ListarProducto(int idcategoria, int idmarca, int nroPagina)
+        {
             List<Producto> lista = new List<Producto>();
 
             bool conversion;
@@ -99,7 +98,7 @@ namespace CapaPresentacionTienda.Controllers
             int _TotalRegistros;
             int _TotalPaginas;
 
-            lista = new CN_Producto().ObtenerProductos(idmarca,idcategoria, nroPagina, 8, out _TotalRegistros, out _TotalPaginas).Select(p => new Producto()
+            lista = new CN_Producto().ObtenerProductos(idmarca, idcategoria, nroPagina, 8, out _TotalRegistros, out _TotalPaginas).Select(p => new Producto()
             {
                 IdProducto = p.IdProducto,
                 Nombre = p.Nombre,
@@ -124,7 +123,8 @@ namespace CapaPresentacionTienda.Controllers
         }
 
         [HttpPost]
-        public JsonResult AgregarCarrito(int idproducto) {
+        public JsonResult AgregarCarrito(int idproducto)
+        {
 
             int idcliente = ((Cliente)Session["Cliente"]).IdCliente;
 
@@ -139,7 +139,8 @@ namespace CapaPresentacionTienda.Controllers
                 mensaje = "El producto ya existe en el carrito";
 
             }
-            else {
+            else
+            {
 
                 respuesta = new CN_Carrito().OperacionCarrito(idcliente, idproducto, true, out mensaje);
             }
@@ -151,7 +152,8 @@ namespace CapaPresentacionTienda.Controllers
 
 
         [HttpGet]
-        public JsonResult CantidadEnCarrito() {
+        public JsonResult CantidadEnCarrito()
+        {
 
             int idcliente = ((Cliente)Session["Cliente"]).IdCliente;
             int cantidad = new CN_Carrito().CantidadEnCarrito(idcliente);
@@ -161,7 +163,8 @@ namespace CapaPresentacionTienda.Controllers
 
 
         [HttpPost]
-        public JsonResult ListarProductosCarrito() {
+        public JsonResult ListarProductosCarrito()
+        {
 
             int idcliente = ((Cliente)Session["Cliente"]).IdCliente;
 
@@ -211,7 +214,8 @@ namespace CapaPresentacionTienda.Controllers
         }
 
         [HttpPost]
-        public JsonResult EliminarCarrito(int idproducto) {
+        public JsonResult EliminarCarrito(int idproducto)
+        {
 
             int idcliente = ((Cliente)Session["Cliente"]).IdCliente;
 
@@ -226,7 +230,8 @@ namespace CapaPresentacionTienda.Controllers
 
 
         [HttpPost]
-        public JsonResult ObtenerDepartamento() {
+        public JsonResult ObtenerDepartamento()
+        {
 
             List<Departamento> oLista = new List<Departamento>();
 
@@ -253,20 +258,22 @@ namespace CapaPresentacionTienda.Controllers
 
             List<Distrito> oLista = new List<Distrito>();
 
-            oLista = new CN_Ubicacion().ObtenerDistrito(IdDepartamento,IdProvincia);
+            oLista = new CN_Ubicacion().ObtenerDistrito(IdDepartamento, IdProvincia);
 
             return Json(new { lista = oLista }, JsonRequestBehavior.AllowGet);
         }
 
         [ValidarSession]
         [Authorize]
-        public ActionResult Carrito() {
+        public ActionResult Carrito()
+        {
             return View();
         }
 
 
         [HttpPost]
-        public async Task<JsonResult> ProcesarPago(List<Carrito> oListaCarrito, Venta oVenta) {
+        public async Task<JsonResult> ProcesarPago(List<Carrito> oListaCarrito, Venta oVenta)
+        {
 
             decimal total = 0;
             DataTable detalle_venta = new DataTable();
@@ -356,7 +363,7 @@ namespace CapaPresentacionTienda.Controllers
             return Json(response_paypal, JsonRequestBehavior.AllowGet);
             //return Json(new { Status = true, Link = "/Tienda/PagoEfectuado?idTransaccion=code0001&status=true" }, JsonRequestBehavior.AllowGet);
 
-            
+
 
             //foreach (Carrito oCarrito in oListaCarrito)
             //{
@@ -447,7 +454,8 @@ namespace CapaPresentacionTienda.Controllers
 
         [ValidarSession]
         [Authorize]
-        public async Task<ActionResult> PagoEfectuado() {
+        public async Task<ActionResult> PagoEfectuado()
+        {
 
             string token = Request.QueryString["token"];
             //string idtransaccion = Request.QueryString["idTransaccion"];
@@ -460,8 +468,9 @@ namespace CapaPresentacionTienda.Controllers
             ViewData["Status"] = response_paypal.Status;
             //ViewData["Status"] = status;
 
-            if (response_paypal.Status) {
-            //if (status) { 
+            if (response_paypal.Status)
+            {
+                //if (status) { 
 
                 Venta oVenta = (Venta)TempData["Venta"];
 
@@ -479,7 +488,7 @@ namespace CapaPresentacionTienda.Controllers
             }
 
             return View();
-        
+
         }
 
         [ValidarSession]

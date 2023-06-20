@@ -1,5 +1,4 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
 namespace CapaPresentacionTienda
 {
@@ -27,10 +26,10 @@ namespace CapaPresentacionTienda
                       ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                
+
                 "~/Content/site.css",
                 "~/Content/sweetalert.css"
-                
+
                 ));
         }
     }

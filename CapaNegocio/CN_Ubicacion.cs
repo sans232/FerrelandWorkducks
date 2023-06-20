@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-
-using CapaDatos;
+﻿using CapaDatos;
 using CapaEntidad;
+using System.Collections.Generic;
 
 namespace CapaNegocio
 {
@@ -15,18 +9,21 @@ namespace CapaNegocio
         private CD_Ubicacion objCapaDato = new CD_Ubicacion();
 
 
-        public List<Departamento> ObtenerDepartamento() {
+        public List<Departamento> ObtenerDepartamento()
+        {
 
             return objCapaDato.ObtenerDepartamento();
         }
 
-        public List<Provincia> ObtenerProvincia(string iddepartamento) {
+        public List<Provincia> ObtenerProvincia(string iddepartamento)
+        {
 
             return objCapaDato.ObtenerProvincia(iddepartamento);
         }
 
 
-        public List<Distrito> ObtenerDistrito(string iddepartamento, string idprovincia) {
+        public List<Distrito> ObtenerDistrito(string iddepartamento, string idprovincia)
+        {
             return objCapaDato.ObtenerDistrito(iddepartamento, idprovincia);
         }
 

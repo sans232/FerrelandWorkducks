@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-using CapaEntidad;
+﻿using CapaEntidad;
 using CapaNegocio;
-
-
+using System.Linq;
+using System.Web.Mvc;
 using System.Web.Security;
 
 namespace CapaPresentacionAdmin.Controllers
@@ -32,7 +26,7 @@ namespace CapaPresentacionAdmin.Controllers
         {
             return View();
         }
-        int cont=0;
+        int cont = 0;
         [HttpPost]
         public ActionResult Index(string correo, string clave)
         {
@@ -88,7 +82,8 @@ namespace CapaPresentacionAdmin.Controllers
                 ViewBag.Error = "La contraseña actual no es correcta";
                 return View();
             }
-            else if (nuevaclave != confirmarclave) {
+            else if (nuevaclave != confirmarclave)
+            {
 
                 TempData["IdUsuario"] = idusuario;
                 ViewData["vclave"] = claveactual;
@@ -110,7 +105,8 @@ namespace CapaPresentacionAdmin.Controllers
 
                 return RedirectToAction("Index");
             }
-            else {
+            else
+            {
 
                 TempData["IdUsuario"] = idusuario;
 
@@ -122,13 +118,15 @@ namespace CapaPresentacionAdmin.Controllers
 
 
         [HttpPost]
-        public ActionResult Reestablecer(string correo) {
+        public ActionResult Reestablecer(string correo)
+        {
 
             Usuario ousurio = new Usuario();
 
             ousurio = new CN_Usuarios().Listar().Where(item => item.Correo == correo).FirstOrDefault();
 
-            if (ousurio == null) {
+            if (ousurio == null)
+            {
 
 
                 ViewBag.Error = "No se encontro un usuario relacionado a ese correo";
@@ -146,17 +144,19 @@ namespace CapaPresentacionAdmin.Controllers
                 return RedirectToAction("Index", "Acceso");
 
             }
-            else {
+            else
+            {
 
                 ViewBag.Error = mensaje;
                 return View();
             }
 
-        
-        
+
+
         }
 
-        public ActionResult CerrarSesion() {
+        public ActionResult CerrarSesion()
+        {
 
             FormsAuthentication.SignOut();
             Session["Usuario"] = null;

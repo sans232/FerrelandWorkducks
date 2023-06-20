@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using CapaEntidad.Paypal;
+using Newtonsoft.Json;
+using System;
 using System.Configuration;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using Newtonsoft.Json;
-
-using CapaEntidad.Paypal;
+using System.Text;
+using System.Threading.Tasks;
 namespace CapaNegocio
 {
     public class CN_Paypal
@@ -20,12 +16,14 @@ namespace CapaNegocio
         private static string secret = ConfigurationManager.AppSettings["Secret"];
 
 
-        public async Task<Response_Paypal<Response_Checkout>> CrearSolicitud(Checkout_Order orden) {
+        public async Task<Response_Paypal<Response_Checkout>> CrearSolicitud(Checkout_Order orden)
+        {
 
             Response_Paypal<Response_Checkout> response_paypal = new Response_Paypal<Response_Checkout>();
 
 
-            using (var client = new HttpClient()) {
+            using (var client = new HttpClient())
+            {
 
 
                 client.BaseAddress = new Uri(urlpaypal);
@@ -40,7 +38,8 @@ namespace CapaNegocio
 
                 response_paypal.Status = response.IsSuccessStatusCode;
 
-                if (response.IsSuccessStatusCode) {
+                if (response.IsSuccessStatusCode)
+                {
                     string jsonRespuesta = response.Content.ReadAsStringAsync().Result;
 
                     Response_Checkout checkout = JsonConvert.DeserializeObject<Response_Checkout>(jsonRespuesta);
@@ -50,9 +49,9 @@ namespace CapaNegocio
                 }
 
                 return response_paypal;
-            
+
             }
-        
+
         }
 
 
@@ -72,7 +71,7 @@ namespace CapaNegocio
                 var authToken = Encoding.ASCII.GetBytes($"{clientId}:{secret}");
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(authToken));
 
-            
+
                 var data = new StringContent("{}", Encoding.UTF8, "application/json");
 
                 HttpResponseMessage response = await client.PostAsync($"/v2/checkout/orders/{token}/capture", data);

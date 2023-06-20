@@ -1,13 +1,10 @@
 ﻿using CapaEntidad;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
 namespace CapaPresentacionAdmin.Permisos
 {
-    public class PermisosRolAttribute:ActionFilterAttribute
+    public class PermisosRolAttribute : ActionFilterAttribute
     {
         private Rol idrol;
 
@@ -27,7 +24,7 @@ namespace CapaPresentacionAdmin.Permisos
         }
         public static string ObtenerNombApel()
         {
-            string nombreapel="";
+            string nombreapel = "";
             if (HttpContext.Current.Session["Usuario"] != null)
             {
                 Usuario usuario = HttpContext.Current.Session["Usuario"] as Usuario;
@@ -40,8 +37,8 @@ namespace CapaPresentacionAdmin.Permisos
         {
             if (HttpContext.Current.Session["Usuario"] != null)
             {
-                Usuario usuario= HttpContext.Current.Session["Usuario"] as Usuario;
-                if(usuario.idRol != this.idrol)
+                Usuario usuario = HttpContext.Current.Session["Usuario"] as Usuario;
+                if (usuario.idRol != this.idrol)
                 {
                     filterContext.Result = new RedirectResult("~/Home/SinPermiso");
                 }

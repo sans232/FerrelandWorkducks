@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using CapaDatos;
+﻿using CapaDatos;
 using CapaEntidad;
+using System.Collections.Generic;
 
 namespace CapaNegocio
 {
@@ -13,7 +8,8 @@ namespace CapaNegocio
     {
         private CD_Usuarios objCapaDato = new CD_Usuarios();
 
-        public List<Usuario> Listar() {
+        public List<Usuario> Listar()
+        {
             return objCapaDato.Listar();
         }
         public List<Usuario> ListarE()
@@ -21,12 +17,14 @@ namespace CapaNegocio
             return objCapaDato.ListarE();
         }
 
-        public int Registrar(Usuario obj, out string Mensaje) {
+        public int Registrar(Usuario obj, out string Mensaje)
+        {
 
             Mensaje = string.Empty;
 
 
-            if (string.IsNullOrEmpty(obj.Nombres) || string.IsNullOrWhiteSpace(obj.Nombres)) {
+            if (string.IsNullOrEmpty(obj.Nombres) || string.IsNullOrWhiteSpace(obj.Nombres))
+            {
                 Mensaje = "El nombre del usuario no puede ser vacio";
             }
             else if (string.IsNullOrEmpty(obj.Apellidos) || string.IsNullOrWhiteSpace(obj.Apellidos))
@@ -57,23 +55,26 @@ namespace CapaNegocio
                     obj.Clave = CN_Recursos.ConvertirSha256(clave);
                     return objCapaDato.Registrar(obj, out Mensaje);
                 }
-                else {
+                else
+                {
                     Mensaje = "No se puede enviar el correo";
                     return 0;
                 }
 
 
             }
-            else {
+            else
+            {
 
                 return 0;
             }
 
 
-            
+
         }
 
-        public bool Editar(Usuario obj, out string Mensaje) {
+        public bool Editar(Usuario obj, out string Mensaje)
+        {
 
             Mensaje = string.Empty;
 
@@ -95,13 +96,15 @@ namespace CapaNegocio
 
                 return objCapaDato.Editar(obj, out Mensaje);
             }
-            else {
+            else
+            {
                 return false;
             }
         }
 
 
-        public bool Eliminar(int id, out string Mensaje) {
+        public bool Eliminar(int id, out string Mensaje)
+        {
 
             return objCapaDato.Eliminar(id, out Mensaje);
         }
@@ -110,16 +113,16 @@ namespace CapaNegocio
         public bool CambiarClave(int idusuario, string nuevaclave, out string Mensaje)
         {
 
-            return objCapaDato.CambiarClave(idusuario,nuevaclave, out Mensaje);
+            return objCapaDato.CambiarClave(idusuario, nuevaclave, out Mensaje);
         }
 
 
-        public bool ReestablecerClave(int idusuario,string correo, out string Mensaje)
+        public bool ReestablecerClave(int idusuario, string correo, out string Mensaje)
         {
 
             Mensaje = string.Empty;
             string nuevaclave = CN_Recursos.GenerarClave();
-            bool resultado = objCapaDato.ReestablecerClave(idusuario,CN_Recursos.ConvertirSha256(nuevaclave), out Mensaje);
+            bool resultado = objCapaDato.ReestablecerClave(idusuario, CN_Recursos.ConvertirSha256(nuevaclave), out Mensaje);
 
             if (resultado)
             {
@@ -143,7 +146,8 @@ namespace CapaNegocio
                 }
 
             }
-            else {
+            else
+            {
                 Mensaje = "No se pudo reestablecer la contraseña";
 
                 return false;

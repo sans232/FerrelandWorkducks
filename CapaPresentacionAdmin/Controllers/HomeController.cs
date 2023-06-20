@@ -1,17 +1,12 @@
-﻿using System;
+﻿using CapaEntidad;
+using CapaNegocio;
+using CapaPresentacionAdmin.Permisos;
+using ClosedXML.Excel;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Web.Mvc;
-
-
-
-using CapaEntidad;
-using CapaNegocio;
-using ClosedXML.Excel;
-using CapaPresentacionAdmin.Permisos;
-using OfficeOpenXml;
-using System.Data.SqlClient;
 
 namespace CapaPresentacionAdmin.Controllers
 {
@@ -113,9 +108,10 @@ namespace CapaPresentacionAdmin.Controllers
 
                 resultado = new CN_Usuarios().Registrar(objeto, out mensaje);
             }
-            else {
+            else
+            {
                 resultado = new CN_Usuarios().Editar(objeto, out mensaje);
-            
+
             }
 
             return Json(new { resultado = resultado, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
@@ -141,11 +137,12 @@ namespace CapaPresentacionAdmin.Controllers
         }
 
         [HttpPost]
-        public JsonResult EliminarUsuario(int id) {
+        public JsonResult EliminarUsuario(int id)
+        {
             bool respuesta = false;
             string mensaje = string.Empty;
 
-            respuesta = new CN_Usuarios().Eliminar(id,out mensaje);
+            respuesta = new CN_Usuarios().Eliminar(id, out mensaje);
 
             return Json(new { resultado = respuesta, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
         }
@@ -155,11 +152,11 @@ namespace CapaPresentacionAdmin.Controllers
 
 
         [HttpGet]
-        public JsonResult ListaReporte(string fechainicio,string fechafin,string idtransaccion)
+        public JsonResult ListaReporte(string fechainicio, string fechafin, string idtransaccion)
         {
             List<Reporte> oLista = new List<Reporte>();
 
-            oLista = new CN_Reporte().Ventas(fechainicio,fechafin,idtransaccion);
+            oLista = new CN_Reporte().Ventas(fechainicio, fechafin, idtransaccion);
 
             return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
         }
@@ -177,10 +174,11 @@ namespace CapaPresentacionAdmin.Controllers
 
 
         [HttpGet]
-        public JsonResult VistaDashBoard() {
+        public JsonResult VistaDashBoard()
+        {
             DashBoard objeto = new CN_Reporte().VerDashBoard();
 
-            return Json(new { resultado = objeto}, JsonRequestBehavior.AllowGet);
+            return Json(new { resultado = objeto }, JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
@@ -192,7 +190,8 @@ namespace CapaPresentacionAdmin.Controllers
         }
 
         [HttpPost]
-        public FileResult ExportarVenta(string fechainicio, string fechafin, string idtransaccion) {
+        public FileResult ExportarVenta(string fechainicio, string fechafin, string idtransaccion)
+        {
 
             List<Reporte> oLista = new List<Reporte>();
             oLista = new CN_Reporte().Ventas(fechainicio, fechafin, idtransaccion);
@@ -209,7 +208,8 @@ namespace CapaPresentacionAdmin.Controllers
             dt.Columns.Add("IdTransaccion", typeof(string));
 
 
-            foreach (Reporte rp in oLista) {
+            foreach (Reporte rp in oLista)
+            {
                 dt.Rows.Add(new object[] {
                     rp.FechaVenta,
                     rp.Cliente,
@@ -219,18 +219,20 @@ namespace CapaPresentacionAdmin.Controllers
                     rp.Total,
                     rp.IdTransaccion
                 });
-            
+
             }
 
             dt.TableName = "Datos";
 
-            using (XLWorkbook wb = new XLWorkbook()) {
+            using (XLWorkbook wb = new XLWorkbook())
+            {
 
                 wb.Worksheets.Add(dt);
-                using (MemoryStream stream = new MemoryStream()) {
+                using (MemoryStream stream = new MemoryStream())
+                {
                     wb.SaveAs(stream);
                     return File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "ReporteVenta" + DateTime.Now.ToString() + ".xlsx");
-                
+
                 }
             }
 
@@ -241,8 +243,8 @@ namespace CapaPresentacionAdmin.Controllers
         public ActionResult DescargarInformeExcel()
         {
             byte[] informeBytes = new CN_Reporte().GenerarInformeUsuariosExcel();
-            
-     
+
+
             Response.Clear();
             Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
             Response.AddHeader("content-disposition", "attachment;  filename=Usuarios.xlsx");

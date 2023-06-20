@@ -1,7 +1,7 @@
-﻿using System;
+﻿using CapaEntidad;
+using CapaNegocio;
+using Newtonsoft.Json;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Data.SqlClient;
 using System.Data;
 using System.Globalization;
 using System.IO;
@@ -9,12 +9,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using ClosedXML.Excel;
-using CapaEntidad;
-using CapaNegocio;
-using Newtonsoft.Json;
-using CapaPresentacionAdmin.Permisos;
-using OfficeOpenXml;
 
 
 namespace CapaPresentacionAdmin.Controllers
@@ -222,9 +216,10 @@ namespace CapaPresentacionAdmin.Controllers
 
                 oProducto.Precio = precio;
             }
-            else {
+            else
+            {
 
-                return Json(new { operacionExitosa = false, mensaje = "El formato del precio debe ser ##.##" },JsonRequestBehavior.AllowGet);
+                return Json(new { operacionExitosa = false, mensaje = "El formato del precio debe ser ##.##" }, JsonRequestBehavior.AllowGet);
             }
 
 
@@ -236,7 +231,8 @@ namespace CapaPresentacionAdmin.Controllers
                 {
                     oProducto.IdProducto = idProductoGenerado;
                 }
-                else {
+                else
+                {
                     operacion_exitosa = false;
                 }
             }
@@ -246,9 +242,11 @@ namespace CapaPresentacionAdmin.Controllers
             }
 
 
-            if (operacion_exitosa) {
+            if (operacion_exitosa)
+            {
 
-                if (archivoImagen != null) {
+                if (archivoImagen != null)
+                {
 
                     //string ruta_guardar = ConfigurationManager.AppSettings["ServidorFotos"];
 
@@ -277,24 +275,26 @@ namespace CapaPresentacionAdmin.Controllers
                         oProducto.NombreImagen = nombre_imagen;
                         bool rspta = new CN_Producto().GuardarDatosImagen(oProducto, out mensaje);
                     }
-                    else {
+                    else
+                    {
 
                         mensaje = "Se guardaro el producto pero hubo problemas con la imagen";
                     }
 
-                
+
                 }
             }
 
 
 
 
-            return Json(new { operacionExitosa = operacion_exitosa,idGenerado = oProducto.IdProducto, mensaje = mensaje  }, JsonRequestBehavior.AllowGet);
+            return Json(new { operacionExitosa = operacion_exitosa, idGenerado = oProducto.IdProducto, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
         }
 
 
         [HttpPost]
-        public JsonResult ImagenProducto(int id) {
+        public JsonResult ImagenProducto(int id)
+        {
 
             //bool conversion;
             Producto oproducto = new CN_Producto().Listar().Where(p => p.IdProducto == id).FirstOrDefault();
@@ -363,13 +363,13 @@ namespace CapaPresentacionAdmin.Controllers
             }
 
 
-            if (oCompra.idCompra == 0)
+            if (oCompra.IdCompra == 0)
             {
                 int idCompraGenerado = new CN_Compra().Registrar(oCompra, out mensaje);
 
                 if (idCompraGenerado != 0)
                 {
-                    oCompra.idCompra = idCompraGenerado;
+                    oCompra.IdCompra = idCompraGenerado;
                 }
                 else
                 {
@@ -384,7 +384,7 @@ namespace CapaPresentacionAdmin.Controllers
 
 
 
-            return Json(new { operacionExitosa = operacion_exitosa, idGenerado = oCompra.idCompra, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
+            return Json(new { operacionExitosa = operacion_exitosa, idGenerado = oCompra.IdCompra, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
         }
         //[HttpPost]
         //public JsonResult GuardarCompra(string objeto)
@@ -482,5 +482,5 @@ namespace CapaPresentacionAdmin.Controllers
     }
     #endregion
 
-    
+
 }

@@ -1,9 +1,7 @@
 ﻿using CapaEntidad;
 using CapaNegocio;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 
@@ -39,7 +37,8 @@ namespace CapaPresentacionTienda.Controllers
             ViewData["Apellidos"] = string.IsNullOrEmpty(objeto.Apellidos) ? "" : objeto.Apellidos;
             ViewData["Correo"] = string.IsNullOrEmpty(objeto.Correo) ? "" : objeto.Correo;
 
-            if (objeto.Clave != objeto.ConfirmarClave) {
+            if (objeto.Clave != objeto.ConfirmarClave)
+            {
 
                 ViewBag.Error = "Las contraseñas no coinciden";
                 return View();
@@ -57,7 +56,8 @@ namespace CapaPresentacionTienda.Controllers
                 ViewBag.Error = null;
                 return RedirectToAction("Index", "Acceso");
             }
-            else {
+            else
+            {
                 ViewBag.Error = mensaje;
                 return View();
             }
@@ -107,14 +107,16 @@ namespace CapaPresentacionTienda.Controllers
                 return View();
 
             }
-            else {
+            else
+            {
 
                 if (oCliente.Reestablecer)
                 {
                     TempData["IdCliente"] = oCliente.IdCliente;
                     return RedirectToAction("CambiarClave", "Acceso");
                 }
-                else {
+                else
+                {
 
                     FormsAuthentication.SetAuthCookie(oCliente.Correo, false);
 

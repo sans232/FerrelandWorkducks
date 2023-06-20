@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using CapaDatos;
+﻿using CapaDatos;
 using CapaEntidad;
+using System.Collections.Generic;
 
 namespace CapaNegocio
 {
@@ -28,6 +23,11 @@ namespace CapaNegocio
             {
                 Mensaje = "Debe ingrear el precio del Compra";
             }
+            else if ((obj.total == 0))
+            {
+                Mensaje = "Debe ingresar un precio al Producto";
+            }
+
             else if (obj.oProducto.IdProducto == 0)
             {
                 Mensaje = "Debe seleccionar un producto";

@@ -25,6 +25,7 @@
 
         <hr />*@
         <a href="@Url.Action("DescargarInformeExcelProductos", "Mantenedor")" class="btn btn-primary"><i class="fas fa-file-excel"></i> Reporte</a>
+        <hr />
 
         <table id="tabla" class="display cell-border" style="width: 100%">
             <thead>
@@ -455,8 +456,9 @@
                 PrecioTexto: $("#txtprecioproduc").val(),
                 Precio: $("#txtprecioproduc").val(),
                 Stock: $("#txtstockproduc").val(),
-                Activo: $("#cboactivoproduc").val() == 1 ? true : false,
                 Codigo: $("#txtcodigo").val(),
+                Activo: $("#cboactivoproduc").val() == 1 ? true : false
+                
             }
 
             var request = new FormData();

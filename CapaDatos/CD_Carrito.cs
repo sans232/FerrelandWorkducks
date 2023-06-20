@@ -1,13 +1,8 @@
-﻿using System;
+﻿using CapaEntidad;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using CapaEntidad;
-
-using System.Data.SqlClient;
 using System.Data;
+using System.Data.SqlClient;
 using System.Globalization;
 
 namespace CapaDatos
@@ -17,7 +12,7 @@ namespace CapaDatos
 
         public bool ExisteCarrito(int idcliente, int idproducto)
         {
-            bool resultado= true;
+            bool resultado = true;
 
             try
             {
@@ -128,7 +123,8 @@ namespace CapaDatos
                         {
                             lista.Add(new Carrito()
                             {
-                                oProducto = new Producto() {
+                                oProducto = new Producto()
+                                {
                                     IdProducto = Convert.ToInt32(dr["IdProducto"]),
                                     Nombre = dr["Nombre"].ToString(),
                                     Precio = Convert.ToDecimal(dr["Precio"], new CultureInfo("es-PE")),
@@ -136,7 +132,7 @@ namespace CapaDatos
                                     NombreImagen = dr["NombreImagen"].ToString(),
                                     oMarca = new Marca() { Descripcion = dr["DesMarca"].ToString() }
                                 },
-                                
+
                                 Cantidad = Convert.ToInt32(dr["Cantidad"])
                             });
                         }

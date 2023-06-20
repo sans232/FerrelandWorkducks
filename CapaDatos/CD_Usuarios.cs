@@ -1,13 +1,8 @@
-﻿using System;
+﻿using CapaEntidad;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using CapaEntidad;
-
-using System.Data.SqlClient;
 using System.Data;
+using System.Data.SqlClient;
 
 
 namespace CapaDatos
@@ -15,24 +10,29 @@ namespace CapaDatos
     public class CD_Usuarios
     {
 
-        public List<Usuario> Listar() {
+        public List<Usuario> Listar()
+        {
 
             List<Usuario> lista = new List<Usuario>();
 
             try
             {
-                using (SqlConnection oconexion = new SqlConnection(Conexion.cn)) {
+                using (SqlConnection oconexion = new SqlConnection(Conexion.cn))
+                {
 
                     string query = "select IdUsuario,Nombres,Apellidos,Correo,Clave,Reestablecer,Activo,idRol from USUARIO";
                     SqlCommand cmd = new SqlCommand(query, oconexion);
                     cmd.CommandType = CommandType.Text;
                     oconexion.Open();
 
-                    using (SqlDataReader  dr = cmd.ExecuteReader() ) {
-                        while (dr.Read()) {
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
 
                             lista.Add(
-                                new Usuario() { 
+                                new Usuario()
+                                {
                                     IdUsuario = Convert.ToInt32(dr["IdUsuario"]),
                                     Nombres = dr["Nombres"].ToString(),
                                     Apellidos = dr["Apellidos"].ToString(),
@@ -40,17 +40,18 @@ namespace CapaDatos
                                     Clave = dr["Clave"].ToString(),
                                     Reestablecer = Convert.ToBoolean(dr["Reestablecer"]),
                                     Activo = Convert.ToBoolean(dr["Activo"]),
-                                    idRol= (Rol)(dr["idRol"])
-                                }       
+                                    idRol = (Rol)(dr["idRol"])
+                                }
                                 );
                         }
                     }
                 }
 
             }
-            catch {
+            catch
+            {
                 lista = new List<Usuario>();
-            
+
             }
             return lista;
         }
@@ -206,7 +207,7 @@ namespace CapaDatos
             return resultado;
         }
 
-        public bool CambiarClave(int idusuario,string nuevaclave, out string Mensaje)
+        public bool CambiarClave(int idusuario, string nuevaclave, out string Mensaje)
         {
             bool resultado = false;
             Mensaje = string.Empty;
